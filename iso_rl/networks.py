@@ -299,6 +299,7 @@ class RSSM(nn.Module):
     prior = {}
     if not only_free:
       prev_stoch = prev_state['stoch']
+
       if self._shared:
         raise NotImplementedError
         if embed is None:

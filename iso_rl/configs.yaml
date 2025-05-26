@@ -32,6 +32,12 @@ defaults:
   max_action: False
   encoder_add_action: False
   sz_sparse: False
+  ted_mode: False
+
+
+  # Add these fields to your config class or dict
+  ted_coefficient: 1.0  # Coefficient for the TED loss (like alpha in the paper)
+  target_update_rate: 0.01  # Tau value for EMA update of target encoder
 
   # carla environment
   domain_name: 'carla'
@@ -50,7 +56,7 @@ defaults:
 
   # Model
   dyn_cell: 'gru'
-  dyn_hidden: 200
+  dyn_hidden: 512
   dyn_deter: 200
   dyn_stoch: 50
   dyn_discrete: 0
@@ -257,9 +263,17 @@ dmc:
   steps: 5e5
   eval_every: 5e3 # 1e4
   log_every: 5e3 # 1e4
+
+  # this is for debug
+  # pretrain: 1
+  # prefill: 1
+  # train_steps: 1
+  # batch_size: 10
+  # batch_length: 20
+
   prefill: 2500
-  dataset_size: 0
   pretrain: 100
+  dataset_size: 0
   action_step: 50
   free_step: 40
   use_free: False
@@ -281,6 +295,9 @@ dmc:
   dyn_cell: 'gru_layer_norm'
   pred_discount: False
   cnn_depth: 32
+  # dyn_deter: 512
+  # dyn_stoch: 32
+  # dyn_discrete: 32
   dyn_deter: 200
   dyn_stoch: 50
   dyn_discrete: 0
@@ -373,3 +390,5 @@ debug:
   batch_size: 10
   batch_length: 20
 
+# command
+# python dreamer.py --logdir log/dmcbg_walker_walk --sz_sparse False --min_free True --max_action True --seed 4 --configs defaults dmc --task dmcbg_walker_walk --ted_mode True --device cuda:3

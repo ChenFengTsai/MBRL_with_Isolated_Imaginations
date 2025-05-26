@@ -5,9 +5,10 @@ import os
 import pathlib
 import sys
 import warnings
-from agents.navigation.carla_env_dream import CarlaEnv
-
+# from agents.navigation.carla_env_dream import CarlaEnv
+from torch.utils.tensorboard import SummaryWriter
 os.environ['MUJOCO_GL'] = 'egl'
+# os.environ['PYOPENGL_PLATFORM'] = 'osmesa'
 
 import numpy as np
 import ruamel.yaml as yaml
@@ -49,7 +50,10 @@ class Dreamer(nn.Module):
     config.imag_gradient_mix = (
         lambda x=config.imag_gradient_mix: tools.schedule(x, self._step))
     self._dataset = dataset
-    self._wm = models.WorldModel(self._step, config)
+    if config.ted_mode:
+      self._wm = models.WorldModel_TED(self._step, config)
+    else:
+      self._wm = models.WorldModel(self._step, config)
     self._task_behavior = models.ImagBehavior(
         config, self._wm, config.behavior_stop_grad)
     reward = lambda f, s, a: self._wm.heads['reward'](f).mean
@@ -284,6 +288,35 @@ def process_episode(config, logger, mode, train_eps, eval_eps, episode):
 
 
 def main(config):
+  # tools.set_seed_everywhere(config.seed)
+  base_logdir = pathlib.Path(config.logdir).expanduser()
+  logdir = base_logdir
+  
+  # Check if the directory exists and create a unique one with suffix if needed
+  if logdir.exists():
+      # Find all existing directories with the pattern base_logdir_X
+      parent_dir = base_logdir.parent
+      base_name = base_logdir.name
+      
+      # Get all directories matching the pattern base_name_X where X is a number
+      existing_dirs = [d for d in parent_dir.glob(f"{base_name}_*") if d.is_dir()]
+      
+      # Extract suffixes and find the maximum
+      max_suffix = 0
+      for dir_path in existing_dirs:
+          suffix_str = dir_path.name[len(base_name)+1:]
+          if suffix_str.isdigit():
+              max_suffix = max(max_suffix, int(suffix_str))
+      
+      # Create new directory with max_suffix + 1
+      new_suffix = max_suffix + 1
+      logdir = pathlib.Path(f"{base_logdir}_{new_suffix}")
+      
+      print(f"Logdir {base_logdir} already exists. Using {logdir} instead.")
+    
+    
+  # Update config with the new logdir
+  config.logdir = str(logdir)
   logdir = pathlib.Path(config.logdir).expanduser()
   config.traindir = config.traindir or logdir / 'train_eps'
   config.evaldir = config.evaldir or logdir / 'eval_eps'
