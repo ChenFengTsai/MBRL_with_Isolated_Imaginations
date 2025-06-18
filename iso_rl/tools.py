@@ -6,6 +6,7 @@ import pickle
 import re
 import time
 import uuid
+import random
 
 import numpy as np
 
@@ -605,3 +606,11 @@ def schedule(string, step):
       horizon = (1 - mix) * initial + mix * final
       return 1 - 1 / horizon
     raise NotImplementedError(string)
+  
+def set_seed_everywhere(seed):
+  torch.manual_seed(seed)
+  if torch.cuda.is_available():
+      torch.cuda.manual_seed_all(seed)
+  np.random.seed(seed)
+  random.seed(seed)
+  

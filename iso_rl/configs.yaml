@@ -32,12 +32,16 @@ defaults:
   max_action: False
   encoder_add_action: False
   sz_sparse: False
+
+  # ted
   ted_mode: False
-
-
   # Add these fields to your config class or dict
   ted_coefficient: 1.0  # Coefficient for the TED loss (like alpha in the paper)
   target_update_rate: 0.01  # Tau value for EMA update of target encoder
+  ted_simplified: False
+  ted_coefficient_start: 0.0
+  ted_coefficient_end: 1.0
+  ted_warmup_ratio: 0.2
 
   # carla environment
   domain_name: 'carla'
@@ -57,8 +61,11 @@ defaults:
   # Model
   dyn_cell: 'gru'
   dyn_hidden: 512
+  #dyn_hidden: 200
   dyn_deter: 200
-  dyn_stoch: 50
+  #dyn_deter: 200
+  dyn_stoch: 100
+  #dyn_stoch: 50
   dyn_discrete: 0
   dyn_input_layers: 1
   dyn_output_layers: 1
@@ -295,9 +302,6 @@ dmc:
   dyn_cell: 'gru_layer_norm'
   pred_discount: False
   cnn_depth: 32
-  # dyn_deter: 512
-  # dyn_stoch: 32
-  # dyn_discrete: 32
   dyn_deter: 200
   dyn_stoch: 50
   dyn_discrete: 0
@@ -381,6 +385,35 @@ carla:
   kl_free: '1.0'
   kl_scale: '1.0'
 
+svea:
+  # SVEA specific parameters
+  svea_alpha: 0.5
+  svea_beta: 0.5
+  replay_buffer_capacity: 100000
+  num_seed_steps: 1000
+  num_train_iters: 1
+  image_pad: 4
+  save_freq: 50000
+  num_eval_episodes: 10
+  save_video: False
+  
+  # SAC parameters (keeping original structure)
+  hidden_dim: 1024
+  hidden_depth: 2
+  actor_log_std_min: -10.0
+  actor_log_std_max: 2.0
+  init_temperature: 0.1
+  alpha_lr: 1e-4
+  actor_update_freq: 2
+  critic_target_update_freq: 2
+  critic_tau: 0.01
+  encoder_tau: 0.01
+  
+  # Network architecture (keeping original structure)
+  num_conv_layers: 4
+  num_filters: 32
+  feature_dim: 50
+
 debug:
 
   debug: True
@@ -391,4 +424,11 @@ debug:
   batch_length: 20
 
 # command
-# python dreamer.py --logdir log/dmcbg_walker_walk --sz_sparse False --min_free True --max_action True --seed 4 --configs defaults dmc --task dmcbg_walker_walk --ted_mode True --device cuda:3
+# iso_seed1 is video hard with iso only (walker)
+# original is video easy with iso only
+# iso is video easy with 512
+# cheetah
+# python dreamer.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_cheetah_run/iso --sz_sparse False --min_free True --max_action True --seed 20 --configs defaults dmc --task dmcbg_cheetah_run --device cuda:2 --eval_mode video_easy
+# walker
+# python dreamer.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_cheetah_run/iso --sz_sparse False --min_free True --max_action True --seed 100 --configs defaults dmc --task dmcbg_cheetah_run --device cuda:1 --ted_mode False --ted_simplified False
+# python svea_train.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_walker_walk/svea_ted --configs defaults dmc svea --task dmc_walker_walk --device cuda:4 --ted_mode True --seed 100

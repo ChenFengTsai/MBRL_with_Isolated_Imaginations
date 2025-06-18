@@ -1,6 +1,6 @@
 torch
 torchvision
-gym
+gym==0.21.0
 atari_py
 opencv-python
 numpy
@@ -10,10 +10,12 @@ pyprind
 tqdm
 tensorboard
 moviepy
-shutil
-pickle
+# shutil
+# pickle
 pillow
-sklearn
+scikit-learn
 matplotlib
 lpips
 scikit-image
+ruamel.yaml
+xmltodict

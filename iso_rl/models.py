@@ -486,12 +486,13 @@ class WorldModel_TED(nn.Module):
 
       # Process action-conditioned branch
       ted_loss_action = self._compute_branch_ted_loss(feat, target_feat, self.ted_classifier_action)
+      ted_loss = ted_loss_action
       
-      # Process action-free branch
-      ted_loss_free = self._compute_branch_ted_loss(feat_free, target_feat_free, self.ted_classifier_free)
+      # # Process action-free branch
+      # ted_loss_free = self._compute_branch_ted_loss(feat_free, target_feat_free, self.ted_classifier_free)
       
       # Combine losses from both branches
-      ted_loss = ted_loss_action + ted_loss_free
+      # ted_loss = ted_loss_action + ted_loss_free
       
       return ted_loss
       
@@ -509,7 +510,7 @@ class WorldModel_TED(nn.Module):
       
       # Skip if sequence is too short
       if seq_len < 2:
-          return torch.tensor(0.0, device=feat.device)
+        return torch.tensor(0.0, device=feat.device)
       
       # Create temporal samples (consecutive timesteps)
       # Using only the first feature along sequence dimension for simplicity
@@ -529,12 +530,12 @@ class WorldModel_TED(nn.Module):
       
       # Create the non-temporal same episode samples
       if seq_len > 2:
-          # If sequence length allows, take a different position
-          same_ep_pos = 2  # Use third position in sequence
-          same_ep_obs_rep = target_feat[:, same_ep_pos]
+        # If sequence length allows, take a different position
+        same_ep_pos = 2  # Use third position in sequence
+        same_ep_obs_rep = target_feat[:, same_ep_pos]
       else:
-          # Otherwise, just reuse the first position
-          same_ep_obs_rep = target_feat[:, 0]
+        # Otherwise, just reuse the first position
+        same_ep_obs_rep = target_feat[:, 0]
       
       same_ep_iid_samples = torch.stack([obs_rep, same_ep_obs_rep], dim=1)
       same_ep_iid_labels = torch.zeros((batch_size, 1), device=feat.device)
@@ -907,3 +908,400 @@ class TEDClassifier(nn.Module):
         output = linear_sum - marginal_sum + self.c
         
         return output.view(batch_size, 1)
+      
+
+#### new
+class WorldModel_TED_Simplified(nn.Module):
+    def __init__(self, step, config):
+        super(WorldModel_TED_Simplified, self).__init__()
+        print('Using Simplified TED mode (no target encoder)')
+        self._step = step
+        self._use_amp = True if config.precision==16 else False
+        self._config = config
+        self.mask = config.mask
+        
+        # Only main encoder (no target encoder)
+        self.encoder = networks.ConvEncoder(config.grayscale,
+            config.cnn_depth, config.act, config.encoder_kernels, config)
+        if config.size[0] == 64 and config.size[1] == 64:
+            embed_size = 2 ** (len(config.encoder_kernels)-1) * config.cnn_depth
+            embed_size *= 2 * 2
+        else:
+            raise NotImplemented(f"{config.size} is not applicable now")
+        
+        # Dynamics model (original from Iso-Dream)
+        self.dynamics = networks.RSSM(
+            config.dyn_stoch, config.dyn_deter, config.dyn_hidden,
+            config.dyn_input_layers, config.dyn_output_layers,
+            config.dyn_rec_depth, config.dyn_shared, config.dyn_discrete,
+            config.act, config.dyn_mean_act, config.dyn_std_act,
+            config.dyn_temp_post, config.dyn_min_std, config.dyn_cell,
+            config.num_actions, embed_size, config.device, config)
+        
+        # TED classifiers
+        if config.dyn_discrete:
+            feat_size = config.dyn_stoch * config.dyn_discrete + config.dyn_deter
+        else:
+            feat_size = config.dyn_stoch + config.dyn_deter
+            
+        self.ted_classifier_action = TEDClassifierSimple(feat_size, config)
+        self.ted_classifier_free = TEDClassifierSimple(feat_size, config)
+        
+        # Task-adaptive TED parameters
+        self.ted_coefficient_start = getattr(config, 'ted_coefficient_start', 0.0)
+        self.ted_coefficient_end = getattr(config, 'ted_coefficient_end', 1.0)
+        self.ted_warmup_ratio = getattr(config, 'ted_warmup_ratio', 0.2)
+        total_steps = getattr(config, 'steps', 500000)  # Default 1M steps
+        self.ted_warmup_steps = int(total_steps * self.ted_warmup_ratio)
+        
+        # Environment-specific settings
+        self.env_name = getattr(config, 'env_name', 'walker')
+        if 'cheetah' in self.env_name.lower():
+            self.ted_coefficient_end *= 0.3  # Even lower for Cheetah
+            print(f"Cheetah detected: TED coefficient reduced to {self.ted_coefficient_end}")
+            
+        # Initialize rest of the model (same as original)
+        self._initialize_heads_and_optimizers(config, embed_size, feat_size)
+
+    def _initialize_heads_and_optimizers(self, config, embed_size, feat_size):
+        """Initialize heads and optimizers - same as original implementation"""
+        self.heads = nn.ModuleDict()
+        channels = (1 if config.grayscale else 3)
+        shape = (channels,) + config.size
+        
+        if config.mask == 1:
+            print('\033[1;35m Using single mask decoders \033[0m')
+            self.heads['image'] = networks.SingleMaskDecoder(
+                feat_size, config.cnn_depth, config.act, shape, 
+                config.decoder_kernels, config.decoder_thin)
+        elif config.mask == 2:
+            print('\033[1;35mUsing double mask decoders \033[0m')
+            self.heads['image'] = networks.DoubleDecoder(
+                feat_size, config.cnn_depth, config.act, shape,
+                config.decoder_kernels, config.decoder_thin)
+        elif config.mask == 3:
+            print('\033[1;35mUsing Three mask decoders \033[0m')
+            self.heads['image'] = networks.TrippleDecoder(
+                feat_size, config.cnn_depth, config.act, shape,
+                config.decoder_kernels, config.decoder_thin)
+        else:
+            raise NotImplementedError
+        
+        self.background_decoder = networks.ConvDecoder(
+            embed_size * config.init_frame, config.cnn_depth, config.act, 
+            shape, config.decoder_kernels, config.decoder_thin)
+        
+        double_size = 2 if config.use_free else 1
+        self.heads['reward'] = networks.DenseHead(
+            double_size*feat_size, [], config.reward_layers, 
+            config.units, config.act)
+        
+        if config.inverse_dynamics:
+            self.heads['action'] = networks.DenseHead(
+                embed_size, [config.num_actions], config.reward_layers,
+                config.units, config.act)
+        if config.pred_discount:
+            self.heads['discount'] = networks.DenseHead(
+                double_size*feat_size, [], config.discount_layers,
+                config.units, config.act, dist='binary')
+        
+        for name in config.grad_heads:
+            assert name in self.heads, name
+        
+        self._model_opt = tools.Optimizer(
+            'model', self.parameters(), config.model_lr, config.opt_eps, 
+            config.grad_clip, config.weight_decay, opt=config.opt,
+            use_amp=self._use_amp)
+        
+        self._scales = dict(
+            reward=config.reward_scale, discount=config.discount_scale, 
+            action=config.action_scale)
+
+    def _get_ted_coefficient(self):
+        """Get current TED coefficient with warmup schedule"""
+        if self._step < self.ted_warmup_steps:
+            progress = self._step / self.ted_warmup_steps
+            ted_coeff = self.ted_coefficient_start + progress * (
+                self.ted_coefficient_end - self.ted_coefficient_start)
+        else:
+            ted_coeff = self.ted_coefficient_end
+        return ted_coeff
+
+    def _train(self, data):
+        data = self.preprocess(data) 
+        self.dynamics.train_wm = True
+        self.dynamics.step = 0
+
+        with tools.RequiresGrad(self):
+            with torch.cuda.amp.autocast(self._use_amp):
+                # Single encoding pass (no target encoder)
+                embed = self.encoder(data, data['action'])
+                embed_back = self.encoder(data, data['action'], bg=True)
+                embed_back = embed_back[:, :self._config.init_frame, :].reshape(
+                    self._config.batch_size, -1)
+                background = self.background_decoder(embed_back.unsqueeze(1)).mode()
+                background = torch.clamp(background, min=-0.5, max=0.5)
+                
+                self.dynamics.rollout_free = True
+                post, prior = self.dynamics.observe(embed, data['action'])
+                self.dynamics.rollout_free = self._config.use_free
+                
+                # Get features for TED
+                feat, feat_free = self.dynamics.get_feat_for_decoder(
+                    post, prior=prior, action_step=self._config.action_step, 
+                    free_step=self._config.free_step)
+                
+                # Calculate TED loss using same features (no target)
+                ted_coefficient = self._get_ted_coefficient()
+                if ted_coefficient > 0:
+                    ted_loss = self._compute_ted_loss_simple(feat, feat_free)
+                else:
+                    ted_loss = torch.tensor(0.0, device=feat.device)
+                
+                # Original Iso-Dream KL loss
+                kl_balance = tools.schedule(self._config.kl_balance, self._step)
+                kl_free = tools.schedule(self._config.kl_free, self._step)
+                kl_scale = tools.schedule(self._config.kl_scale, self._step)
+                kl_loss, kl_value = self.dynamics.kl_loss(
+                    post, prior, self._config.kl_forward, kl_balance, kl_free, kl_scale)
+                
+                if self._config.sz_sparse:
+                    regularization_loss = torch.mean(prior['gate']) 
+                
+                losses = {}
+                likes = {}
+                
+                # Process all heads (same as original)
+                for name, head in self.heads.items():
+                    if 'image' in name:
+                        if self.mask == 3:
+                            pred, _, _, action_mask, free_mask = self.heads['image'](
+                                feat, feat_free, background)
+                            if self._config.autoencoder:
+                                like = pred.log_prob(data[name][:, 1:, :, :, :]) 
+                            else:
+                                like = pred.log_prob(data[name])  
+                        else:
+                            pred, _, _, _, _ = self.heads['image'](
+                                feat, feat_free, data['image'])
+                            like = pred.log_prob(data[name])
+                    elif 'action' in name:
+                        embed_action, embed_free = torch.chunk(embed, chunks=2, dim=-1)
+                        inp = embed_action[:, 1:, :] - embed_action[:, :-1, :]
+                        pred = head(inp)
+                        like = pred.log_prob(data[name][:, 1:, :])
+                    else:
+                        grad_head = (name in self._config.grad_heads)
+                        feat_combined = self.dynamics.get_feat(post)
+                        feat_combined = feat_combined if grad_head else feat_combined.detach()
+                        pred = head(feat_combined)
+                        if self._config.autoencoder:
+                            like = pred.log_prob(data[name][:, 1:, :]) 
+                        else:
+                            like = pred.log_prob(data[name])
+                    likes[name] = like
+                    losses[name] = -torch.mean(like) * self._scales.get(name, 1.0)
+                
+                # Combine all losses
+                model_loss = sum(losses.values()) + kl_loss + ted_coefficient * ted_loss
+                
+                # Add other regularization losses (same as original)
+                if self._config.min_free:
+                    min_free_neg_loss = torch.sum(
+                        (prior['deter_free'] - prior['deter_free_neg']) ** 2) 
+                    min_free_pos_loss = torch.sum(
+                        (prior['deter_free_pos'] - prior['deter_free']) ** 2)
+                    min_free_loss = min_free_neg_loss + min_free_pos_loss
+                    model_loss += min_free_loss 
+                if self._config.max_action:
+                    max_action_loss = torch.abs(torch.cosine_similarity(
+                        prior['deter'], prior['deter_action_neg'], dim=2))
+                    model_loss += torch.mean(max_action_loss)
+                if self._config.sz_sparse:
+                    model_loss += regularization_loss
+
+            # Optimization step
+            metrics = self._model_opt(model_loss, self.parameters())
+
+        # Update metrics
+        metrics.update({f'{name}_loss': to_np(loss) for name, loss in losses.items()})
+        metrics['kl_balance'] = kl_balance
+        metrics['kl_free'] = kl_free
+        metrics['kl_scale'] = kl_scale
+        metrics['ted_loss'] = to_np(ted_loss)
+        metrics['ted_coefficient'] = ted_coefficient
+        
+        if self._config.min_free:
+            metrics['min_free_loss'] = to_np(min_free_loss)
+        if self._config.max_action:
+            metrics['max_action_loss'] = to_np(max_action_loss)
+        if self._config.sz_sparse:
+            metrics['regularization_loss'] = to_np(regularization_loss)
+        metrics['kl'] = to_np(torch.mean(kl_value))
+        
+        with torch.cuda.amp.autocast(self._use_amp):
+            metrics['prior_ent'] = to_np(torch.mean(
+                self.dynamics.get_dist(prior, free=False).entropy()))
+            metrics['post_ent'] = to_np(torch.mean(
+                self.dynamics.get_dist(post, free=False).entropy()))
+            metrics['prior_ent_free'] = to_np(torch.mean(
+                self.dynamics.get_dist(prior, free=True).entropy()))
+            metrics['post_ent_free'] = to_np(torch.mean(
+                self.dynamics.get_dist(post, free=True).entropy()))
+            context = None
+            
+        post = {k: v.detach() for k, v in post.items()}
+        self.dynamics.train_wm = False
+        return post, context, metrics
+
+    def _compute_ted_loss_simple(self, feat, feat_free):
+        """
+        Simplified TED loss using temporal consistency within the same sequence
+        No target encoder needed - uses temporal relationships in current features
+        """
+        # Process action-conditioned branch
+        ted_loss_action = self._compute_branch_ted_loss_temporal(feat, self.ted_classifier_action)
+        ted_loss = ted_loss_action
+        
+        # # Process action-free branch  
+        # ted_loss_free = self._compute_branch_ted_loss_temporal(
+        #     feat_free, self.ted_classifier_free)
+        
+        # # Combine losses from both branches
+        # ted_loss = ted_loss_action + ted_loss_free
+        
+        return ted_loss
+        
+    def _compute_branch_ted_loss_temporal(self, feat, classifier):
+        """
+        Compute TED loss using temporal relationships within the same sequence
+        This encourages the model to distinguish between:
+        1. Consecutive timesteps (temporal=1) 
+        2. Non-consecutive timesteps from same episode (temporal=0)
+        3. Random pairs from different episodes (temporal=0)
+        """
+        batch_size = feat.shape[0]
+        seq_len = feat.shape[1]
+        feat_dim = feat.shape[2]
+        loss_fn = nn.BCEWithLogitsLoss()
+        
+        # Skip if sequence is too short
+        if seq_len < 3:
+            return torch.tensor(0.0, device=feat.device)
+        
+        all_samples = []
+        all_labels = []
+        
+        # Sample temporal pairs (consecutive timesteps) - these should be labeled as temporal=1
+        num_consecutive = min(2, seq_len - 1)
+        for i in range(num_consecutive):
+            if i + 1 >= seq_len:
+                break
+                
+            obs_t = feat[:, i]      # [batch_size, feat_dim]
+            obs_t1 = feat[:, i + 1] # [batch_size, feat_dim]
+            
+            temporal_samples = torch.stack([obs_t, obs_t1], dim=1)
+            temporal_labels = torch.ones((batch_size, 1), device=feat.device)
+            
+            all_samples.append(temporal_samples)
+            all_labels.append(temporal_labels)
+        
+        # Sample non-consecutive pairs from same episode - labeled as temporal=0
+        for i in range(min(2, seq_len - 2)):
+            if i + 2 >= seq_len:
+                break
+                
+            obs_t = feat[:, i]      # [batch_size, feat_dim]
+            obs_t2 = feat[:, i + 2] # [batch_size, feat_dim] (skip one timestep)
+            
+            non_consecutive_samples = torch.stack([obs_t, obs_t2], dim=1)
+            non_consecutive_labels = torch.zeros((batch_size, 1), device=feat.device)
+            
+            all_samples.append(non_consecutive_samples)
+            all_labels.append(non_consecutive_labels)
+        
+        # Sample random pairs from different episodes - labeled as temporal=0
+        rnd_idx = torch.randperm(batch_size, device=feat.device)
+        obs_rand1 = feat[:, 0]           # [batch_size, feat_dim]
+        obs_rand2 = feat[rnd_idx, 1]     # [batch_size, feat_dim] (from different episodes)
+        
+        random_samples = torch.stack([obs_rand1, obs_rand2], dim=1)
+        random_labels = torch.zeros((batch_size, 1), device=feat.device)
+        
+        all_samples.append(random_samples)
+        all_labels.append(random_labels)
+        
+        if not all_samples:
+            return torch.tensor(0.0, device=feat.device)
+        
+        # Combine all samples and labels
+        samples = torch.cat(all_samples)
+        labels = torch.cat(all_labels)
+        
+        # Get predictions from classifier
+        preds = classifier(samples)
+        
+        # Calculate loss
+        ted_loss = loss_fn(preds, labels)
+        
+        return ted_loss
+
+    def preprocess(self, obs):
+        obs = obs.copy()
+        obs['image'] = torch.Tensor(obs['image']) / 255.0 - 0.5
+        if self._config.clip_rewards == 'tanh':
+            obs['reward'] = torch.tanh(torch.Tensor(obs['reward'])).unsqueeze(-1)
+        elif self._config.clip_rewards == 'identity':
+            obs['reward'] = torch.Tensor(obs['reward']).unsqueeze(-1)
+        else:
+            raise NotImplemented(f'{self._config.clip_rewards} is not implemented')
+        if 'discount' in obs:
+            obs['discount'] *= self._config.discount
+            obs['discount'] = torch.Tensor(obs['discount']).unsqueeze(-1)
+        obs = {k: torch.Tensor(v).to(self._config.device) for k, v in obs.items()}
+        return obs
+
+    # Include video_pred method same as original
+    def video_pred(self, data):
+        # Same implementation as original WorldModel
+        pass
+
+
+class TEDClassifierSimple(nn.Module):
+    """Simplified TED classifier without environment complexity"""
+    def __init__(self, feature_dim, config):
+        super().__init__()
+        self.feature_dim = feature_dim
+        
+        # Simple neural network approach that works for both environments
+        hidden_dim = min(feature_dim, 256)
+        self.network = nn.Sequential(
+            nn.Linear(2 * feature_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_dim, hidden_dim // 2),
+            nn.ReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_dim // 2, 1)
+        )
+        
+        # Initialize weights
+        for layer in self.network:
+            if isinstance(layer, nn.Linear):
+                nn.init.xavier_uniform_(layer.weight)
+                nn.init.zeros_(layer.bias)
+    
+    def forward(self, samples):
+        """
+        Simple classification of temporal relationships
+        """
+        batch_size = samples.shape[0]
+        x1 = samples[:, 0]  # [batch_size, feature_dim]
+        x2 = samples[:, 1]  # [batch_size, feature_dim]
+        
+        # Concatenate features and pass through network
+        concat_features = torch.cat([x1, x2], dim=1)
+        output = self.network(concat_features)
+        
+        return output
