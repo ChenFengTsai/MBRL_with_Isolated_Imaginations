@@ -283,6 +283,8 @@ class WorldModel_TED(nn.Module):
     # Additional heads and networks (original from Iso-Dream)
     self.heads = nn.ModuleDict()
     channels = (1 if config.grayscale else 3)
+    if isinstance(config.size, list):
+      config.size = tuple(config.size)
     shape = (channels,) + config.size
     if config.dyn_discrete:
       feat_size = config.dyn_stoch * config.dyn_discrete + config.dyn_deter
@@ -488,11 +490,11 @@ class WorldModel_TED(nn.Module):
       ted_loss_action = self._compute_branch_ted_loss(feat, target_feat, self.ted_classifier_action)
       ted_loss = ted_loss_action
       
-      # # Process action-free branch
-      # ted_loss_free = self._compute_branch_ted_loss(feat_free, target_feat_free, self.ted_classifier_free)
+      # Process action-free branch
+      ted_loss_free = self._compute_branch_ted_loss(feat_free, target_feat_free, self.ted_classifier_free)
       
       # Combine losses from both branches
-      # ted_loss = ted_loss_action + ted_loss_free
+      ted_loss = ted_loss_action + ted_loss_free
       
       return ted_loss
       

@@ -142,3 +142,4 @@ iso_rl/envs
 iso_rl/log
 iso_rl/CARLA_0.9.10
 iso_rl/carla
+iso_rl/test

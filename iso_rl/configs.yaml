@@ -428,7 +428,11 @@ debug:
 # original is video easy with iso only
 # iso is video easy with 512
 # cheetah
-# python dreamer.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_cheetah_run/iso --sz_sparse False --min_free True --max_action True --seed 20 --configs defaults dmc --task dmcbg_cheetah_run --device cuda:2 --eval_mode video_easy
+# python dreamer.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_cheetah_run/iso --sz_sparse False --min_free True --max_action True --seed 330 --configs defaults dmc --task dmcbg_cheetah_run --device cuda:2 --eval_mode video_easy --ted_mode False --ted_simplified False
 # walker
-# python dreamer.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_cheetah_run/iso --sz_sparse False --min_free True --max_action True --seed 100 --configs defaults dmc --task dmcbg_cheetah_run --device cuda:1 --ted_mode False --ted_simplified False
+
+# python dreamer.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_walker_run/iso --sz_sparse False --min_free True --max_action True --seed 543 --configs defaults dmc --task dmcbg_walker_run --device cuda:2 --ted_mode False --ted_simplified False
 # python svea_train.py --logdir /storage/ssd1/richtsai1103/iso_ted/log/dmcbg_walker_walk/svea_ted --configs defaults dmc svea --task dmc_walker_walk --device cuda:4 --ted_mode True --seed 100
+
+# test
+# python test.py --logdir test/walker_walk --sz_sparse False --min_free True --max_action True --configs defaults dmc --task dmcbg_walker_walk --eval_mode video_hard

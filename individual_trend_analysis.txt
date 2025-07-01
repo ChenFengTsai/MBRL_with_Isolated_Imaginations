@@ -1,0 +1,1125 @@
+INDIVIDUAL TREND ANALYSIS RESULTS
+(Metrics calculated per trend, then averaged)
+============================================================
+
+Metric: action_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 5.561950 ± 0.005525
+  Average CV: 1.39% ± 0.05%
+  Average Range: 0.542589 ± 0.007142
+  Average Fluctuation: 0.249019 ± 0.004575
+  Average Volatility: 0.005805 ± 0.000169
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=5.5592, CV=1.45%, Stability=stable
+    Run 2: Mean=5.5630, CV=1.41%, Stability=stable
+    Run 3: Mean=5.5556, CV=1.36%, Stability=stable
+    Run 4: Mean=5.5541, CV=1.28%, Stability=stable
+    Run 5: Mean=5.5647, CV=1.42%, Stability=stable
+    Run 6: Mean=5.5663, CV=1.38%, Stability=stable
+    Run 7: Mean=5.5707, CV=1.41%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 5.563515 ± 0.005746
+  Average CV: 1.37% ± 0.04%
+  Average Range: 0.539672 ± 0.006863
+  Average Fluctuation: 0.247386 ± 0.005460
+  Average Volatility: 0.005783 ± 0.000137
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=5.5637, CV=1.37%, Stability=stable
+    Run 2: Mean=5.5693, CV=1.40%, Stability=stable
+    Run 3: Mean=5.5623, CV=1.40%, Stability=stable
+    Run 4: Mean=5.5688, CV=1.29%, Stability=stable
+    Run 5: Mean=5.5534, CV=1.37%, Stability=stable
+
+==================================================
+Metric: actor_ent
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: -2.874947 ± 0.768276
+  Average CV: 93.18% ± 36.77%
+  Average Range: 13.662855 ± 0.532293
+  Average Fluctuation: 5.129731 ± 0.581819
+  Average Volatility: 0.264065 ± 0.124492
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=-3.2059, CV=75.75%, Stability=chaotic
+    Run 2: Mean=-3.3501, CV=65.89%, Stability=chaotic
+    Run 3: Mean=-1.7858, CV=147.84%, Stability=chaotic
+    Run 4: Mean=-3.3801, CV=63.84%, Stability=chaotic
+    Run 5: Mean=-3.9341, CV=56.40%, Stability=chaotic
+    Run 6: Mean=-1.7802, CV=149.88%, Stability=chaotic
+    Run 7: Mean=-2.6884, CV=92.67%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: -3.325644 ± 0.476419
+  Average CV: 86.41% ± 24.48%
+  Average Range: 14.685601 ± 1.267535
+  Average Fluctuation: 5.506834 ± 0.466692
+  Average Volatility: 0.193226 ± 0.026134
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=-3.8278, CV=67.11%, Stability=chaotic
+    Run 2: Mean=-2.4445, CV=133.97%, Stability=chaotic
+    Run 3: Mean=-3.5019, CV=70.04%, Stability=chaotic
+    Run 4: Mean=-3.2619, CV=83.91%, Stability=chaotic
+    Run 5: Mean=-3.5922, CV=77.03%, Stability=chaotic
+
+==================================================
+Metric: actor_grad_norm
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 12.039055 ± 2.876014
+  Average CV: 66.46% ± 13.48%
+  Average Range: 27.795941 ± 8.783402
+  Average Fluctuation: 3.624068 ± 1.527216
+  Average Volatility: 0.935598 ± 0.267446
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=11.2270, CV=50.98%, Stability=chaotic
+    Run 2: Mean=12.4365, CV=67.59%, Stability=chaotic
+    Run 3: Mean=14.4563, CV=95.12%, Stability=chaotic
+    Run 4: Mean=16.1710, CV=59.88%, Stability=chaotic
+    Run 5: Mean=11.9859, CV=54.82%, Stability=chaotic
+    Run 6: Mean=11.7975, CV=71.88%, Stability=chaotic
+    Run 7: Mean=6.1991, CV=64.95%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 9.720935 ± 0.665541
+  Average CV: 60.31% ± 12.61%
+  Average Range: 19.699821 ± 2.676337
+  Average Fluctuation: 3.483948 ± 0.891720
+  Average Volatility: 0.879121 ± 0.101778
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=10.2906, CV=55.50%, Stability=chaotic
+    Run 2: Mean=9.1456, CV=53.75%, Stability=chaotic
+    Run 3: Mean=10.4217, CV=44.52%, Stability=chaotic
+    Run 4: Mean=8.7306, CV=81.33%, Stability=chaotic
+    Run 5: Mean=10.0162, CV=66.43%, Stability=chaotic
+
+==================================================
+Metric: actor_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: -86.424440 ± 20.808808
+  Average CV: 48.91% ± 5.13%
+  Average Range: 145.142260 ± 30.853111
+  Average Fluctuation: 14.486959 ± 9.873937
+  Average Volatility: 1.531278 ± 0.308501
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=-96.4387, CV=44.07%, Stability=chaotic
+    Run 2: Mean=-101.8856, CV=47.91%, Stability=chaotic
+    Run 3: Mean=-55.2210, CV=49.99%, Stability=chaotic
+    Run 4: Mean=-90.0800, CV=39.50%, Stability=chaotic
+    Run 5: Mean=-117.8378, CV=52.63%, Stability=chaotic
+    Run 6: Mean=-59.7653, CV=55.00%, Stability=chaotic
+    Run 7: Mean=-83.7427, CV=53.29%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: -102.174507 ± 9.735735
+  Average CV: 49.87% ± 6.69%
+  Average Range: 172.125424 ± 18.999695
+  Average Fluctuation: 17.627376 ± 8.298336
+  Average Volatility: 1.796682 ± 0.180243
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=-106.8184, CV=52.46%, Stability=chaotic
+    Run 2: Mean=-113.4508, CV=51.46%, Stability=chaotic
+    Run 3: Mean=-98.9816, CV=37.42%, Stability=chaotic
+    Run 4: Mean=-84.9939, CV=57.55%, Stability=chaotic
+    Run 5: Mean=-106.6279, CV=50.45%, Stability=chaotic
+
+==================================================
+Metric: eval_episodes
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 1.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 6: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 7: Mean=1.0000, CV=0.00%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 1.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=1.0000, CV=0.00%, Stability=stable
+
+==================================================
+Metric: eval_length
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 500.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 6: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 7: Mean=500.0000, CV=0.00%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 500.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=500.0000, CV=0.00%, Stability=stable
+
+==================================================
+Metric: eval_return
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 430.590790 ± 98.573560
+  Average CV: 53.31% ± 11.60%
+  Average Range: 756.432473 ± 139.100614
+  Average Fluctuation: 107.317175 ± 28.770592
+  Average Volatility: 84.367665 ± 19.978202
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=448.4286, CV=40.97%, Stability=chaotic
+    Run 2: Mean=499.5457, CV=48.48%, Stability=chaotic
+    Run 3: Mean=299.4158, CV=69.01%, Stability=chaotic
+    Run 4: Mean=415.4329, CV=38.09%, Stability=chaotic
+    Run 5: Mean=598.4545, CV=52.50%, Stability=chaotic
+    Run 6: Mean=300.7244, CV=70.24%, Stability=chaotic
+    Run 7: Mean=452.1338, CV=53.85%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 533.335520 ± 53.872787
+  Average CV: 49.29% ± 7.36%
+  Average Range: 894.017223 ± 81.368143
+  Average Fluctuation: 102.048252 ± 29.975047
+  Average Volatility: 68.046758 ± 15.295797
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=579.5695, CV=51.38%, Stability=chaotic
+    Run 2: Mean=588.2041, CV=51.14%, Stability=chaotic
+    Run 3: Mean=473.1953, CV=36.56%, Stability=chaotic
+    Run 4: Mean=463.3193, CV=59.28%, Stability=chaotic
+    Run 5: Mean=562.3894, CV=48.09%, Stability=chaotic
+
+==================================================
+Metric: fps
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 9.332617 ± 0.323678
+  Average CV: 12.03% ± 1.95%
+  Average Range: 10.206613 ± 0.462313
+  Average Fluctuation: 4.890575 ± 0.447801
+  Average Volatility: 0.282298 ± 0.079074
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'moderate': 6, 'volatile': 1}
+  Individual Run Details:
+    Run 1: Mean=9.6561, CV=10.28%, Stability=moderate
+    Run 2: Mean=8.6739, CV=10.82%, Stability=moderate
+    Run 3: Mean=9.5595, CV=10.25%, Stability=moderate
+    Run 4: Mean=9.5846, CV=12.31%, Stability=moderate
+    Run 5: Mean=9.5042, CV=15.73%, Stability=volatile
+    Run 6: Mean=9.1941, CV=13.98%, Stability=moderate
+    Run 7: Mean=9.1560, CV=10.83%, Stability=moderate
+
+Isolated+TED (5 runs):
+  Average Mean: 7.398493 ± 0.530013
+  Average CV: 11.01% ± 0.73%
+  Average Range: 8.055932 ± 0.367655
+  Average Fluctuation: 3.596243 ± 0.349501
+  Average Volatility: 0.185925 ± 0.012021
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'moderate': 5}
+  Individual Run Details:
+    Run 1: Mean=7.9988, CV=10.19%, Stability=moderate
+    Run 2: Mean=6.5757, CV=11.57%, Stability=moderate
+    Run 3: Mean=7.8037, CV=10.23%, Stability=moderate
+    Run 4: Mean=7.0019, CV=12.05%, Stability=moderate
+    Run 5: Mean=7.6123, CV=11.00%, Stability=moderate
+
+==================================================
+Metric: image_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 11309.405526 ± 1.273209
+  Average CV: 0.19% ± 0.02%
+  Average Range: 205.245815 ± 17.778127
+  Average Fluctuation: 96.128096 ± 9.475066
+  Average Volatility: 2.107248 ± 0.191376
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=11309.8112, CV=0.18%, Stability=stable
+    Run 2: Mean=11308.5902, CV=0.17%, Stability=stable
+    Run 3: Mean=11308.3901, CV=0.22%, Stability=stable
+    Run 4: Mean=11307.9485, CV=0.17%, Stability=stable
+    Run 5: Mean=11308.6178, CV=0.18%, Stability=stable
+    Run 6: Mean=11311.1708, CV=0.19%, Stability=stable
+    Run 7: Mean=11311.3101, CV=0.20%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 11309.411567 ± 0.889586
+  Average CV: 0.18% ± 0.01%
+  Average Range: 198.078516 ± 17.330651
+  Average Fluctuation: 92.195367 ± 8.811226
+  Average Volatility: 2.028183 ± 0.181287
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=11309.0854, CV=0.17%, Stability=stable
+    Run 2: Mean=11310.5641, CV=0.19%, Stability=stable
+    Run 3: Mean=11309.4175, CV=0.16%, Stability=stable
+    Run 4: Mean=11310.0384, CV=0.17%, Stability=stable
+    Run 5: Mean=11307.9524, CV=0.20%, Stability=stable
+
+==================================================
+Metric: kl
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 21.630572 ± 2.227092
+  Average CV: 12.81% ± 3.56%
+  Average Range: 15.370748 ± 2.219336
+  Average Fluctuation: 6.706534 ± 1.489365
+  Average Volatility: 0.268556 ± 0.026107
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'volatile': 2, 'moderate': 5}
+  Individual Run Details:
+    Run 1: Mean=20.8203, CV=18.28%, Stability=volatile
+    Run 2: Mean=21.9565, CV=13.82%, Stability=moderate
+    Run 3: Mean=19.0004, CV=9.68%, Stability=moderate
+    Run 4: Mean=18.4217, CV=17.43%, Stability=volatile
+    Run 5: Mean=22.6303, CV=11.72%, Stability=moderate
+    Run 6: Mean=23.4058, CV=8.42%, Stability=moderate
+    Run 7: Mean=25.1790, CV=10.34%, Stability=moderate
+
+Isolated+TED (5 runs):
+  Average Mean: 23.989106 ± 2.148617
+  Average CV: 12.94% ± 1.57%
+  Average Range: 17.765671 ± 1.826656
+  Average Fluctuation: 8.524775 ± 1.106538
+  Average Volatility: 0.277999 ± 0.027764
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'moderate': 5}
+  Individual Run Details:
+    Run 1: Mean=22.6835, CV=10.30%, Stability=moderate
+    Run 2: Mean=26.9674, CV=12.85%, Stability=moderate
+    Run 3: Mean=24.2184, CV=14.90%, Stability=moderate
+    Run 4: Mean=25.3453, CV=12.54%, Stability=moderate
+    Run 5: Mean=20.7309, CV=14.10%, Stability=moderate
+
+==================================================
+Metric: kl_balance
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 0.800000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: increasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 2: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 3: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 4: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 5: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 6: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 7: Mean=0.8000, CV=0.00%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 0.800000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: increasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 2: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 3: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 4: Mean=0.8000, CV=0.00%, Stability=stable
+    Run 5: Mean=0.8000, CV=0.00%, Stability=stable
+
+==================================================
+Metric: kl_free
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 1.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 6: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 7: Mean=1.0000, CV=0.00%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 1.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=1.0000, CV=0.00%, Stability=stable
+
+==================================================
+Metric: kl_scale
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 1.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 6: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 7: Mean=1.0000, CV=0.00%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 1.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=1.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=1.0000, CV=0.00%, Stability=stable
+
+==================================================
+Metric: max_action_loss
+----------------------------------------
+
+Isolated (6 runs):
+  Average Mean: 0.393239 ± 0.067692
+  Average CV: 54.00% ± 11.32%
+  Average Range: 0.787318 ± 0.053863
+  Average Fluctuation: 0.194866 ± 0.047309
+  Average Volatility: 0.008459 ± 0.000503
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 6}
+  Individual Run Details:
+    Run 1: Mean=0.3679, CV=58.23%, Stability=chaotic
+    Run 2: Mean=0.3900, CV=56.67%, Stability=chaotic
+    Run 3: Mean=0.3628, CV=45.07%, Stability=chaotic
+    Run 4: Mean=0.3101, CV=72.66%, Stability=chaotic
+    Run 5: Mean=0.3975, CV=55.11%, Stability=chaotic
+    Run 6: Mean=0.5311, CV=36.26%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 0.430382 ± 0.088045
+  Average CV: 57.74% ± 10.88%
+  Average Range: 0.803974 ± 0.044338
+  Average Fluctuation: 0.153275 ± 0.065621
+  Average Volatility: 0.008308 ± 0.000509
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=0.3747, CV=63.64%, Stability=chaotic
+    Run 2: Mean=0.5609, CV=40.56%, Stability=chaotic
+    Run 3: Mean=0.4082, CV=57.41%, Stability=chaotic
+    Run 4: Mean=0.4956, CV=53.71%, Stability=chaotic
+    Run 5: Mean=0.3125, CV=73.41%, Stability=chaotic
+
+==================================================
+Metric: min_free_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 1.736392 ± 0.094399
+  Average CV: 988.27% ± 0.49%
+  Average Range: 171.611647 ± 9.299219
+  Average Fluctuation: 84.069735 ± 4.555199
+  Average Volatility: 1.751265 ± 0.094863
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=1.6747, CV=989.22%, Stability=chaotic
+    Run 2: Mean=1.6921, CV=988.16%, Stability=chaotic
+    Run 3: Mean=1.7544, CV=988.38%, Stability=chaotic
+    Run 4: Mean=1.5584, CV=988.08%, Stability=chaotic
+    Run 5: Mean=1.7988, CV=988.58%, Stability=chaotic
+    Run 6: Mean=1.8379, CV=987.84%, Stability=chaotic
+    Run 7: Mean=1.8384, CV=987.60%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 1.685381 ± 0.110270
+  Average CV: 987.61% ± 0.66%
+  Average Range: 166.463593 ± 10.911155
+  Average Fluctuation: 81.546701 ± 5.345345
+  Average Volatility: 1.698720 ± 0.111328
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=1.6860, CV=988.52%, Stability=chaotic
+    Run 2: Mean=1.8541, CV=987.85%, Stability=chaotic
+    Run 3: Mean=1.5178, CV=987.77%, Stability=chaotic
+    Run 4: Mean=1.6385, CV=986.50%, Stability=chaotic
+    Run 5: Mean=1.7305, CV=987.43%, Stability=chaotic
+
+==================================================
+Metric: model_grad_norm
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 50.954640 ± 7.478939
+  Average CV: 17.89% ± 4.42%
+  Average Range: 62.589871 ± 15.423569
+  Average Fluctuation: 16.089176 ± 7.904454
+  Average Volatility: 6.417161 ± 3.258612
+  Most Common Stability: volatile
+  Most Common Trend: decreasing
+  Stability Distribution: {'volatile': 5, 'moderate': 2}
+  Individual Run Details:
+    Run 1: Mean=59.0748, CV=16.33%, Stability=volatile
+    Run 2: Mean=41.4328, CV=18.62%, Stability=volatile
+    Run 3: Mean=48.3483, CV=18.04%, Stability=volatile
+    Run 4: Mean=53.6212, CV=14.37%, Stability=moderate
+    Run 5: Mean=63.4497, CV=28.02%, Stability=volatile
+    Run 6: Mean=46.5412, CV=14.21%, Stability=moderate
+    Run 7: Mean=44.2145, CV=15.65%, Stability=volatile
+
+Isolated+TED (5 runs):
+  Average Mean: 45.846315 ± 2.786492
+  Average CV: 14.52% ± 3.30%
+  Average Range: 37.940444 ± 12.660726
+  Average Fluctuation: 11.661552 ± 3.083531
+  Average Volatility: 4.066312 ± 1.361025
+  Most Common Stability: moderate
+  Most Common Trend: decreasing
+  Stability Distribution: {'moderate': 3, 'volatile': 2}
+  Individual Run Details:
+    Run 1: Mean=48.6761, CV=13.81%, Stability=moderate
+    Run 2: Mean=40.5288, CV=13.95%, Stability=moderate
+    Run 3: Mean=47.0147, CV=9.29%, Stability=moderate
+    Run 4: Mean=46.1163, CV=19.36%, Stability=volatile
+    Run 5: Mean=46.8957, CV=16.20%, Stability=volatile
+
+==================================================
+Metric: model_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 11340.607609 ± 3.355501
+  Average CV: 0.33% ± 0.02%
+  Average Range: 371.090402 ± 21.957759
+  Average Fluctuation: 173.950287 ± 12.529230
+  Average Volatility: 3.844097 ± 0.223602
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=11340.5665, CV=0.32%, Stability=stable
+    Run 2: Mean=11340.0671, CV=0.30%, Stability=stable
+    Run 3: Mean=11336.9410, CV=0.36%, Stability=stable
+    Run 4: Mean=11335.6673, CV=0.31%, Stability=stable
+    Run 5: Mean=11340.8948, CV=0.32%, Stability=stable
+    Run 6: Mean=11344.3613, CV=0.34%, Stability=stable
+    Run 7: Mean=11345.7553, CV=0.34%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 11343.204080 ± 3.146211
+  Average CV: 0.32% ± 0.02%
+  Average Range: 359.549414 ± 26.755545
+  Average Fluctuation: 167.056369 ± 13.681558
+  Average Volatility: 3.695968 ± 0.291090
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=11341.5234, CV=0.31%, Stability=stable
+    Run 2: Mean=11347.6193, CV=0.34%, Stability=stable
+    Run 3: Mean=11343.2582, CV=0.28%, Stability=stable
+    Run 4: Mean=11345.2217, CV=0.30%, Stability=stable
+    Run 5: Mean=11338.3978, CV=0.35%, Stability=stable
+
+==================================================
+Metric: post_ent
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 15.478178 ± 3.461877
+  Average CV: 45.82% ± 17.51%
+  Average Range: 62.056285 ± 3.452025
+  Average Fluctuation: 28.186593 ± 2.103626
+  Average Volatility: 0.844098 ± 0.068578
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 6, 'volatile': 1}
+  Individual Run Details:
+    Run 1: Mean=11.3152, CV=61.63%, Stability=chaotic
+    Run 2: Mean=16.9664, CV=35.25%, Stability=chaotic
+    Run 3: Mean=19.9288, CV=29.85%, Stability=volatile
+    Run 4: Mean=9.4363, CV=81.98%, Stability=chaotic
+    Run 5: Mean=17.9929, CV=35.87%, Stability=chaotic
+    Run 6: Mean=16.0565, CV=39.11%, Stability=chaotic
+    Run 7: Mean=16.6512, CV=37.02%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 14.354107 ± 4.523997
+  Average CV: 55.32% ± 30.37%
+  Average Range: 63.304982 ± 4.400202
+  Average Fluctuation: 29.107075 ± 1.081751
+  Average Volatility: 0.819137 ± 0.038139
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=16.6606, CV=37.47%, Stability=chaotic
+    Run 2: Mean=12.6790, CV=55.57%, Stability=chaotic
+    Run 3: Mean=16.0128, CV=39.41%, Stability=chaotic
+    Run 4: Mean=6.5445, CV=113.77%, Stability=chaotic
+    Run 5: Mean=19.8737, CV=30.36%, Stability=chaotic
+
+==================================================
+Metric: post_ent_free
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 80.820724 ± 13.514668
+  Average CV: 10.97% ± 3.23%
+  Average Range: 36.325277 ± 8.698359
+  Average Fluctuation: 7.441146 ± 2.719742
+  Average Volatility: 1.218817 ± 0.530595
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'stable': 1, 'moderate': 6}
+  Individual Run Details:
+    Run 1: Mean=106.4485, CV=4.20%, Stability=stable
+    Run 2: Mean=78.0919, CV=12.71%, Stability=moderate
+    Run 3: Mean=88.6577, CV=10.96%, Stability=moderate
+    Run 4: Mean=58.6085, CV=9.30%, Stability=moderate
+    Run 5: Mean=82.8158, CV=11.21%, Stability=moderate
+    Run 6: Mean=75.2496, CV=13.84%, Stability=moderate
+    Run 7: Mean=75.8731, CV=14.59%, Stability=moderate
+
+Isolated+TED (5 runs):
+  Average Mean: 82.639464 ± 12.387399
+  Average CV: 11.78% ± 3.12%
+  Average Range: 39.083009 ± 8.710842
+  Average Fluctuation: 7.866444 ± 1.938339
+  Average Volatility: 1.007644 ± 0.278350
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'moderate': 5}
+  Individual Run Details:
+    Run 1: Mean=97.3600, CV=6.80%, Stability=moderate
+    Run 2: Mean=84.0943, CV=14.26%, Stability=moderate
+    Run 3: Mean=91.2302, CV=14.47%, Stability=moderate
+    Run 4: Mean=61.0927, CV=9.40%, Stability=moderate
+    Run 5: Mean=79.4202, CV=13.95%, Stability=moderate
+
+==================================================
+Metric: prior_ent
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 35.453609 ± 4.508846
+  Average CV: 15.02% ± 5.65%
+  Average Range: 45.085622 ± 4.916587
+  Average Fluctuation: 17.420133 ± 1.977085
+  Average Volatility: 0.726515 ± 0.080838
+  Most Common Stability: moderate
+  Most Common Trend: decreasing
+  Stability Distribution: {'volatile': 2, 'moderate': 5}
+  Individual Run Details:
+    Run 1: Mean=31.3853, CV=19.74%, Stability=volatile
+    Run 2: Mean=37.4950, CV=11.24%, Stability=moderate
+    Run 3: Mean=37.5254, CV=11.41%, Stability=moderate
+    Run 4: Mean=26.1888, CV=27.01%, Stability=volatile
+    Run 5: Mean=39.1943, CV=11.37%, Stability=moderate
+    Run 6: Mean=37.0847, CV=12.61%, Stability=moderate
+    Run 7: Mean=39.3017, CV=11.74%, Stability=moderate
+
+Isolated+TED (5 runs):
+  Average Mean: 35.901993 ± 3.228966
+  Average CV: 14.69% ± 5.07%
+  Average Range: 44.171467 ± 5.096647
+  Average Fluctuation: 17.033580 ± 0.534845
+  Average Volatility: 0.705657 ± 0.033997
+  Most Common Stability: moderate
+  Most Common Trend: decreasing
+  Stability Distribution: {'moderate': 3, 'volatile': 2}
+  Individual Run Details:
+    Run 1: Mean=37.2355, CV=12.09%, Stability=moderate
+    Run 2: Mean=36.7988, CV=15.72%, Stability=volatile
+    Run 3: Mean=38.1929, CV=10.64%, Stability=moderate
+    Run 4: Mean=29.5135, CV=24.16%, Stability=volatile
+    Run 5: Mean=37.7693, CV=10.84%, Stability=moderate
+
+==================================================
+Metric: prior_ent_free
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 82.108904 ± 13.101699
+  Average CV: 10.82% ± 3.28%
+  Average Range: 36.466709 ± 8.997744
+  Average Fluctuation: 7.319344 ± 2.633357
+  Average Volatility: 1.210981 ± 0.526876
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'stable': 1, 'moderate': 6}
+  Individual Run Details:
+    Run 1: Mean=106.6920, CV=4.08%, Stability=stable
+    Run 2: Mean=79.2031, CV=12.62%, Stability=moderate
+    Run 3: Mean=89.7255, CV=10.97%, Stability=moderate
+    Run 4: Mean=60.0606, CV=8.66%, Stability=moderate
+    Run 5: Mean=83.9272, CV=11.23%, Stability=moderate
+    Run 6: Mean=77.1978, CV=13.86%, Stability=moderate
+    Run 7: Mean=77.9562, CV=14.34%, Stability=moderate
+
+Isolated+TED (5 runs):
+  Average Mean: 84.634853 ± 12.206868
+  Average CV: 11.69% ± 3.32%
+  Average Range: 39.738940 ± 9.184763
+  Average Fluctuation: 7.903779 ± 2.135078
+  Average Volatility: 1.001266 ± 0.281191
+  Most Common Stability: moderate
+  Most Common Trend: increasing
+  Stability Distribution: {'moderate': 5}
+  Individual Run Details:
+    Run 1: Mean=98.9999, CV=6.72%, Stability=moderate
+    Run 2: Mean=86.4711, CV=14.56%, Stability=moderate
+    Run 3: Mean=92.7783, CV=14.52%, Stability=moderate
+    Run 4: Mean=63.1710, CV=8.69%, Stability=moderate
+    Run 5: Mean=81.7540, CV=13.94%, Stability=moderate
+
+==================================================
+Metric: reward_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 1.850001 ± 0.003501
+  Average CV: 0.21% ± 0.06%
+  Average Range: 0.014120 ± 0.004341
+  Average Fluctuation: 0.004237 ± 0.001678
+  Average Volatility: 0.000401 ± 0.000080
+  Most Common Stability: stable
+  Most Common Trend: increasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=1.8486, CV=0.22%, Stability=stable
+    Run 2: Mean=1.8497, CV=0.16%, Stability=stable
+    Run 3: Mean=1.8445, CV=0.13%, Stability=stable
+    Run 4: Mean=1.8501, CV=0.18%, Stability=stable
+    Run 5: Mean=1.8545, CV=0.26%, Stability=stable
+    Run 6: Mean=1.8474, CV=0.19%, Stability=stable
+    Run 7: Mean=1.8551, CV=0.32%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 1.854879 ± 0.003948
+  Average CV: 0.25% ± 0.10%
+  Average Range: 0.019000 ± 0.006927
+  Average Fluctuation: 0.006585 ± 0.003217
+  Average Volatility: 0.000522 ± 0.000098
+  Most Common Stability: stable
+  Most Common Trend: increasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=1.8584, CV=0.35%, Stability=stable
+    Run 2: Mean=1.8572, CV=0.35%, Stability=stable
+    Run 3: Mean=1.8566, CV=0.25%, Stability=stable
+    Run 4: Mean=1.8549, CV=0.25%, Stability=stable
+    Run 5: Mean=1.8473, CV=0.07%, Stability=stable
+
+==================================================
+Metric: reward_mean
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 0.655042 ± 0.180714
+  Average CV: 41.38% ± 5.15%
+  Average Range: 0.983342 ± 0.265319
+  Average Fluctuation: 0.103975 ± 0.049002
+  Average Volatility: 0.011935 ± 0.001334
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=0.7319, CV=41.08%, Stability=chaotic
+    Run 2: Mean=0.7924, CV=40.14%, Stability=chaotic
+    Run 3: Mean=0.3957, CV=31.37%, Stability=chaotic
+    Run 4: Mean=0.6999, CV=38.74%, Stability=chaotic
+    Run 5: Mean=0.9127, CV=45.62%, Stability=chaotic
+    Run 6: Mean=0.3940, CV=44.18%, Stability=chaotic
+    Run 7: Mean=0.6587, CV=48.50%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 0.824860 ± 0.089085
+  Average CV: 44.06% ± 5.59%
+  Average Range: 1.259619 ± 0.144772
+  Average Fluctuation: 0.122298 ± 0.065174
+  Average Volatility: 0.013595 ± 0.001730
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=0.8451, CV=45.83%, Stability=chaotic
+    Run 2: Mean=0.8979, CV=45.14%, Stability=chaotic
+    Run 3: Mean=0.8248, CV=33.51%, Stability=chaotic
+    Run 4: Mean=0.6566, CV=50.22%, Stability=chaotic
+    Run 5: Mean=0.8999, CV=45.61%, Stability=chaotic
+
+==================================================
+Metric: reward_std
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 0.505908 ± 0.095527
+  Average CV: 39.75% ± 9.41%
+  Average Range: 0.683201 ± 0.027839
+  Average Fluctuation: 0.143165 ± 0.077767
+  Average Volatility: 0.007501 ± 0.000377
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=0.5854, CV=35.66%, Stability=chaotic
+    Run 2: Mean=0.5734, CV=33.17%, Stability=chaotic
+    Run 3: Mean=0.3414, CV=55.73%, Stability=chaotic
+    Run 4: Mean=0.5811, CV=30.14%, Stability=chaotic
+    Run 5: Mean=0.5795, CV=31.21%, Stability=chaotic
+    Run 6: Mean=0.3843, CV=51.48%, Stability=chaotic
+    Run 7: Mean=0.4963, CV=40.82%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 0.535418 ± 0.049101
+  Average CV: 33.13% ± 3.98%
+  Average Range: 0.674463 ± 0.030253
+  Average Fluctuation: 0.176800 ± 0.043561
+  Average Volatility: 0.007737 ± 0.000588
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 4, 'volatile': 1}
+  Individual Run Details:
+    Run 1: Mean=0.5319, CV=34.15%, Stability=chaotic
+    Run 2: Mean=0.5754, CV=32.85%, Stability=chaotic
+    Run 3: Mean=0.6033, CV=26.31%, Stability=volatile
+    Run 4: Mean=0.4971, CV=38.72%, Stability=chaotic
+    Run 5: Mean=0.4694, CV=33.63%, Stability=chaotic
+
+==================================================
+Metric: ted_loss
+----------------------------------------
+
+Isolated+TED (5 runs):
+  Average Mean: 0.261223 ± 0.013228
+  Average CV: 122.80% ± 7.17%
+  Average Range: 2.870584 ± 0.071758
+  Average Fluctuation: 1.345346 ± 0.040020
+  Average Volatility: 0.031284 ± 0.000737
+  Most Common Stability: chaotic
+  Most Common Trend: decreasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=0.2485, CV=124.66%, Stability=chaotic
+    Run 2: Mean=0.2425, CV=135.91%, Stability=chaotic
+    Run 3: Mean=0.2701, CV=115.86%, Stability=chaotic
+    Run 4: Mean=0.2763, CV=117.85%, Stability=chaotic
+    Run 5: Mean=0.2687, CV=119.72%, Stability=chaotic
+
+==================================================
+Metric: train_episodes
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 252.500000 ± 0.000000
+  Average CV: 56.71% ± 0.00%
+  Average Range: 495.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 1.000000 ± 0.000000
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 2: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 3: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 4: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 5: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 6: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 7: Mean=252.5000, CV=56.71%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 252.500000 ± 0.000000
+  Average CV: 56.71% ± 0.00%
+  Average Range: 495.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 1.000000 ± 0.000000
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 2: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 3: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 4: Mean=252.5000, CV=56.71%, Stability=chaotic
+    Run 5: Mean=252.5000, CV=56.71%, Stability=chaotic
+
+==================================================
+Metric: train_length
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 500.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 7}
+  Individual Run Details:
+    Run 1: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 6: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 7: Mean=500.0000, CV=0.00%, Stability=stable
+
+Isolated+TED (5 runs):
+  Average Mean: 500.000000 ± 0.000000
+  Average CV: 0.00% ± 0.00%
+  Average Range: 0.000000 ± 0.000000
+  Average Fluctuation: 0.000000 ± 0.000000
+  Average Volatility: 0.000000 ± 0.000000
+  Most Common Stability: stable
+  Most Common Trend: decreasing
+  Stability Distribution: {'stable': 5}
+  Individual Run Details:
+    Run 1: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 2: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 3: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 4: Mean=500.0000, CV=0.00%, Stability=stable
+    Run 5: Mean=500.0000, CV=0.00%, Stability=stable
+
+==================================================
+Metric: train_return
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 441.047063 ± 98.067166
+  Average CV: 49.39% ± 10.44%
+  Average Range: 761.541448 ± 142.887299
+  Average Fluctuation: 92.592326 ± 28.734142
+  Average Volatility: 63.611095 ± 15.271922
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=461.4061, CV=37.43%, Stability=chaotic
+    Run 2: Mean=513.1991, CV=44.82%, Stability=chaotic
+    Run 3: Mean=306.6819, CV=64.35%, Stability=chaotic
+    Run 4: Mean=427.5882, CV=35.35%, Stability=chaotic
+    Run 5: Mean=606.9434, CV=48.52%, Stability=chaotic
+    Run 6: Mean=315.6529, CV=62.16%, Stability=chaotic
+    Run 7: Mean=455.8578, CV=53.07%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 535.867106 ± 52.246066
+  Average CV: 46.85% ± 7.93%
+  Average Range: 898.436032 ± 85.475331
+  Average Fluctuation: 105.368652 ± 35.342257
+  Average Volatility: 59.449693 ± 15.889687
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 5}
+  Individual Run Details:
+    Run 1: Mean=579.6139, CV=47.70%, Stability=chaotic
+    Run 2: Mean=586.9518, CV=48.34%, Stability=chaotic
+    Run 3: Mean=483.8380, CV=32.69%, Stability=chaotic
+    Run 4: Mean=462.0170, CV=57.28%, Stability=chaotic
+    Run 5: Mean=566.9149, CV=48.24%, Stability=chaotic
+
+==================================================
+Metric: value_grad_norm
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 31.727478 ± 6.457858
+  Average CV: 53.41% ± 17.03%
+  Average Range: 59.606857 ± 11.418706
+  Average Fluctuation: 10.084379 ± 5.209937
+  Average Volatility: 2.941286 ± 0.308108
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=31.9371, CV=39.45%, Stability=chaotic
+    Run 2: Mean=32.9085, CV=45.72%, Stability=chaotic
+    Run 3: Mean=22.1859, CV=85.47%, Stability=chaotic
+    Run 4: Mean=30.5231, CV=31.58%, Stability=chaotic
+    Run 5: Mean=44.9772, CV=50.24%, Stability=chaotic
+    Run 6: Mean=27.0545, CV=69.53%, Stability=chaotic
+    Run 7: Mean=32.5061, CV=51.89%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 36.144696 ± 5.661329
+  Average CV: 47.82% ± 12.84%
+  Average Range: 67.937789 ± 10.708182
+  Average Fluctuation: 13.956719 ± 3.462693
+  Average Volatility: 3.557895 ± 0.747140
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 4, 'volatile': 1}
+  Individual Run Details:
+    Run 1: Mean=41.7116, CV=45.31%, Stability=chaotic
+    Run 2: Mean=42.8707, CV=41.52%, Stability=chaotic
+    Run 3: Mean=31.9484, CV=29.28%, Stability=volatile
+    Run 4: Mean=27.9953, CV=66.97%, Stability=chaotic
+    Run 5: Mean=36.1974, CV=56.03%, Stability=chaotic
+
+==================================================
+Metric: value_loss
+----------------------------------------
+
+Isolated (7 runs):
+  Average Mean: 10.166879 ± 1.205159
+  Average CV: 59.03% ± 22.19%
+  Average Range: 19.891930 ± 8.608777
+  Average Fluctuation: 3.463418 ± 1.657798
+  Average Volatility: 0.560349 ± 0.320686
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 7}
+  Individual Run Details:
+    Run 1: Mean=9.3298, CV=39.74%, Stability=chaotic
+    Run 2: Mean=9.9579, CV=55.08%, Stability=chaotic
+    Run 3: Mean=12.1745, CV=104.77%, Stability=chaotic
+    Run 4: Mean=9.4801, CV=32.23%, Stability=chaotic
+    Run 5: Mean=10.8722, CV=54.97%, Stability=chaotic
+    Run 6: Mean=11.0807, CV=73.10%, Stability=chaotic
+    Run 7: Mean=8.2728, CV=53.33%, Stability=chaotic
+
+Isolated+TED (5 runs):
+  Average Mean: 9.193266 ± 1.551826
+  Average CV: 52.28% ± 13.34%
+  Average Range: 15.744042 ± 3.828518
+  Average Fluctuation: 2.417266 ± 0.803134
+  Average Volatility: 0.359769 ± 0.065576
+  Most Common Stability: chaotic
+  Most Common Trend: increasing
+  Stability Distribution: {'chaotic': 4, 'volatile': 1}
+  Individual Run Details:
+    Run 1: Mean=10.0132, CV=53.83%, Stability=chaotic
+    Run 2: Mean=11.7477, CV=53.48%, Stability=chaotic
+    Run 3: Mean=8.3161, CV=27.55%, Stability=volatile
+    Run 4: Mean=8.6361, CV=67.37%, Stability=chaotic
+    Run 5: Mean=7.2532, CV=59.16%, Stability=chaotic
+
+==================================================

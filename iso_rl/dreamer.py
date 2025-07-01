@@ -24,7 +24,7 @@ import models
 import networks
 import tools
 import wrappers
-from config_saver import save_config
+import config_saver
 
 to_np = lambda x: x.detach().cpu().numpy()
 
@@ -297,25 +297,25 @@ def main(config):
 	
 	# Check if the directory exists and create a unique one with suffix if needed
 	if logdir.exists():
-			# Find all existing directories with the pattern base_logdir_X
-			parent_dir = base_logdir.parent
-			base_name = base_logdir.name
-			
-			# Get all directories matching the pattern base_name_X where X is a number
-			existing_dirs = [d for d in parent_dir.glob(f"{base_name}_*") if d.is_dir()]
-			
-			# Extract suffixes and find the maximum
-			max_suffix = 0
-			for dir_path in existing_dirs:
-					suffix_str = dir_path.name[len(base_name)+1:]
-					if suffix_str.isdigit():
-							max_suffix = max(max_suffix, int(suffix_str))
-			
-			# Create new directory with max_suffix + 1
-			new_suffix = max_suffix + 1
-			logdir = pathlib.Path(f"{base_logdir}_{new_suffix}")
-			
-			print(f"Logdir {base_logdir} already exists. Using {logdir} instead.")
+		# Find all existing directories with the pattern base_logdir_X
+		parent_dir = base_logdir.parent
+		base_name = base_logdir.name
+		
+		# Get all directories matching the pattern base_name_X where X is a number
+		existing_dirs = [d for d in parent_dir.glob(f"{base_name}_*") if d.is_dir()]
+		
+		# Extract suffixes and find the maximum
+		max_suffix = 0
+		for dir_path in existing_dirs:
+				suffix_str = dir_path.name[len(base_name)+1:]
+				if suffix_str.isdigit():
+						max_suffix = max(max_suffix, int(suffix_str))
+		
+		# Create new directory with max_suffix + 1
+		new_suffix = max_suffix + 1
+		logdir = pathlib.Path(f"{base_logdir}_{new_suffix}")
+		
+		print(f"Logdir {base_logdir} already exists. Using {logdir} instead.")
 		
 		
 	# Update config with the new logdir
@@ -415,17 +415,96 @@ def main(config):
 			pass
 
 
+# if __name__ == '__main__':
+# 	parser = argparse.ArgumentParser()
+# 	parser.add_argument('--configs', nargs='+', required=False)
+# 	args, remaining = parser.parse_known_args()
+# 	parser.add_argument('--load_config', type=str, help='Path to saved config file to load')
+# 	args, remaining = parser.parse_known_args()
+# 	# Check if we're loading from a saved config file
+# 	if args.load_config:
+# 		print(f"Loading saved config from: {args.load_config}")
+		
+# 		# Load the saved config
+# 		config_dict = load_saved_config(args.load_config)
+		
+# 		# Convert to namespace
+# 		config = convert_config_to_namespace(config_dict)
+		
+# 		# Override with any additional command line arguments
+# 		if remaining:
+# 			parser_override = argparse.ArgumentParser()
+# 			for key, value in config_dict.items():
+# 				arg_type = tools.args_type(value)
+# 				parser_override.add_argument(f'--{key}', type=arg_type, default=value)
+			
+# 			# Parse remaining args and update config
+# 			override_args = parser_override.parse_args(remaining)
+# 			for key, value in vars(override_args).items():
+# 				setattr(config, key, value)
+		
+# 		# Validate the loaded config
+# 		validate_config_lists(config)
+		
+# 	else:
+# 		# Original config loading logic
+# 		if not args.configs:
+# 			raise ValueError("Either --configs or --load_config must be provided")
+        
+# 	configs = yaml.safe_load(
+# 			(pathlib.Path(sys.argv[0]).parent / 'configs.yaml').read_text())
+# 	defaults = {}
+# 	for name in args.configs:
+# 		defaults.update(configs[name])
+# 	parser = argparse.ArgumentParser()
+# 	for key, value in sorted(defaults.items(), key=lambda x: x[0]):
+# 		arg_type = tools.args_type(value)
+# 		parser.add_argument(f'--{key}', type=arg_type, default=arg_type(value))
+# 	main(parser.parse_args(remaining))
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser()
-	parser.add_argument('--configs', nargs='+', required=True)
-	args, remaining = parser.parse_known_args()
-	configs = yaml.safe_load(
-			(pathlib.Path(sys.argv[0]).parent / 'configs.yaml').read_text())
-	defaults = {}
-	for name in args.configs:
-		defaults.update(configs[name])
-	parser = argparse.ArgumentParser()
-	for key, value in sorted(defaults.items(), key=lambda x: x[0]):
-		arg_type = tools.args_type(value)
-		parser.add_argument(f'--{key}', type=arg_type, default=arg_type(value))
-	main(parser.parse_args(remaining))
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--configs', nargs='+', required=False)
+  parser.add_argument('--load_config', type=str, help='Path to saved config file to load')
+  args, remaining = parser.parse_known_args()
+
+  # Check if we're loading from a saved config file
+  if args.load_config:
+    print(f"Loading saved config from: {args.load_config}")
+    
+    # Load the saved config
+    config_dict = config_saver.load_saved_config(args.load_config)
+    
+    # Convert to namespace
+    config = config_saver.convert_config_to_namespace(config_dict)
+    
+    # Override with any additional command line arguments
+    if remaining:
+      parser_override = argparse.ArgumentParser()
+      for key, value in config_dict.items():
+        arg_type = tools.args_type(value)
+        parser_override.add_argument(f'--{key}', type=arg_type, default=value)
+      
+      # Parse remaining args and update config
+      override_args = parser_override.parse_args(remaining)
+      for key, value in vars(override_args).items():
+        setattr(config, key, value)
+    
+    # Validate the loaded config
+    config_saver.validate_config_lists(config)
+    # Call main with the loaded config
+    main(config)
+    
+  else:
+    # Original config loading logic
+    if not args.configs:
+      raise ValueError("Either --configs or --load_config must be provided")
+    configs = yaml.safe_load(
+        (pathlib.Path(sys.argv[0]).parent / 'configs.yaml').read_text())
+    defaults = {}
+    for name in args.configs:
+      defaults.update(configs[name])
+    parser = argparse.ArgumentParser()
+    for key, value in sorted(defaults.items(), key=lambda x: x[0]):
+      arg_type = tools.args_type(value)
+      parser.add_argument(f'--{key}', type=arg_type, default=arg_type(value))
+    main(parser.parse_args(remaining))

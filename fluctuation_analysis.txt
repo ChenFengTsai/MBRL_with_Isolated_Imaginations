@@ -1,0 +1,808 @@
+COMPREHENSIVE TREND FLUCTUATION ANALYSIS
+============================================================
+
+DETAILED METRICS ANALYSIS:
+----------------------------------------
+
+Metric: action_loss
+..............................
+  Isolated:
+    Mean: 5.558563
+    Standard Deviation: 0.074081
+    Coefficient of Variation: 1.33%
+    Range: 0.538894
+    Fluctuation Score: 0.250817
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 6.0788 → 5.5399
+    Min/Max: 5.5399 / 6.0788
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 5.563515
+    Standard Deviation: 0.075762
+    Coefficient of Variation: 1.36%
+    Range: 0.538519
+    Fluctuation Score: 0.247369
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 6.0801 → 5.5416
+    Min/Max: 5.5416 / 6.0801
+    Data Points: 99
+
+
+Metric: actor_ent
+..............................
+  Isolated:
+    Mean: -2.562577
+    Standard Deviation: 2.226607
+    Coefficient of Variation: 86.89%
+    Range: 12.973896
+    Fluctuation Score: 5.013340
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 8.9377 → -4.0362
+    Min/Max: -4.0362 / 8.9377
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: -3.325644
+    Standard Deviation: 2.696238
+    Coefficient of Variation: 81.07%
+    Range: 13.712898
+    Fluctuation Score: 5.480182
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 8.8906 → -4.5957
+    Min/Max: -4.6072 / 9.1057
+    Data Points: 99
+
+
+Metric: actor_grad_norm
+..............................
+  Isolated:
+    Mean: 12.028802
+    Standard Deviation: 7.109543
+    Coefficient of Variation: 59.10%
+    Range: 25.916308
+    Fluctuation Score: 3.154504
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.0614 → 17.7037
+    Min/Max: 0.0614 / 25.9777
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 9.719098
+    Standard Deviation: 5.351938
+    Coefficient of Variation: 55.07%
+    Range: 17.838166
+    Fluctuation Score: 2.078246
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.0612 → 15.5201
+    Min/Max: 0.0612 / 17.8993
+    Data Points: 99
+
+
+Metric: actor_loss
+..............................
+  Isolated:
+    Mean: -81.545253
+    Standard Deviation: 36.400625
+    Coefficient of Variation: 44.64%
+    Range: 130.707768
+    Fluctuation Score: 15.800044
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: -0.3921 → -131.0998
+    Min/Max: -131.0998 / -0.3921
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: -102.174507
+    Standard Deviation: 50.087284
+    Coefficient of Variation: 49.02%
+    Range: 172.125424
+    Fluctuation Score: 15.657431
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: -0.4619 → -172.5873
+    Min/Max: -172.5873 / -0.4619
+    Data Points: 99
+
+
+Metric: eval_episodes
+..............................
+  Isolated:
+    Mean: 1.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 1.0000 → 1.0000
+    Min/Max: 1.0000 / 1.0000
+    Data Points: 100
+
+  Isolated+TED:
+    Mean: 1.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 1.0000 → 1.0000
+    Min/Max: 1.0000 / 1.0000
+    Data Points: 100
+
+
+Metric: eval_length
+..............................
+  Isolated:
+    Mean: 500.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 500.0000 → 500.0000
+    Min/Max: 500.0000 / 500.0000
+    Data Points: 100
+
+  Isolated+TED:
+    Mean: 500.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 500.0000 → 500.0000
+    Min/Max: 500.0000 / 500.0000
+    Data Points: 100
+
+
+Metric: eval_return
+..............................
+  Isolated:
+    Mean: 387.087038
+    Standard Deviation: 171.653725
+    Coefficient of Variation: 44.34%
+    Range: 632.234359
+    Fluctuation Score: 62.869890
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 39.2770 → 612.5944
+    Min/Max: 24.4006 / 656.6350
+    Data Points: 100
+
+  Isolated+TED:
+    Mean: 533.335520
+    Standard Deviation: 248.632248
+    Coefficient of Variation: 46.62%
+    Range: 877.585611
+    Fluctuation Score: 70.432604
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 45.8863 → 890.8404
+    Min/Max: 19.3230 / 896.9086
+    Data Points: 100
+
+
+Metric: fps
+..............................
+  Isolated:
+    Mean: 8.954056
+    Standard Deviation: 1.006666
+    Coefficient of Variation: 11.24%
+    Range: 9.843430
+    Fluctuation Score: 4.644570
+    Trend: 📈 Up
+    Stability: 🟡 Medium
+    Values: 0.0000 → 8.6190
+    Min/Max: 0.0000 / 9.8434
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 7.398493
+    Standard Deviation: 0.762796
+    Coefficient of Variation: 10.31%
+    Range: 7.807467
+    Fluctuation Score: 3.583139
+    Trend: 📈 Up
+    Stability: 🟡 Medium
+    Values: 0.0000 → 7.6307
+    Min/Max: 0.0000 / 7.8075
+    Data Points: 99
+
+
+Metric: image_loss
+..............................
+  Isolated:
+    Mean: 11309.815444
+    Standard Deviation: 20.838415
+    Coefficient of Variation: 0.18%
+    Range: 202.990792
+    Fluctuation Score: 95.131264
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 11506.4421 → 11303.4513
+    Min/Max: 11303.4513 / 11506.4421
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 11309.411567
+    Standard Deviation: 20.358106
+    Coefficient of Variation: 0.18%
+    Range: 198.078320
+    Fluctuation Score: 92.195367
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 11500.6461 → 11302.5678
+    Min/Max: 11302.5678 / 11500.6461
+    Data Points: 99
+
+
+Metric: kl
+..............................
+  Isolated:
+    Mean: 21.550566
+    Standard Deviation: 2.379924
+    Coefficient of Variation: 11.04%
+    Range: 13.972957
+    Fluctuation Score: 6.381651
+    Trend: 📈 Up
+    Stability: 🟡 Medium
+    Values: 11.4245 → 18.9134
+    Min/Max: 11.4245 / 25.3974
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 23.989106
+    Standard Deviation: 2.975629
+    Coefficient of Variation: 12.40%
+    Range: 17.484336
+    Fluctuation Score: 8.524775
+    Trend: 📈 Up
+    Stability: 🟡 Medium
+    Values: 10.7578 → 20.1708
+    Min/Max: 10.7578 / 28.2422
+    Data Points: 99
+
+
+Metric: kl_balance
+..............................
+  Isolated:
+    Mean: 0.800000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📈 Up
+    Stability: 🟢 Stable
+    Values: 0.8000 → 0.8000
+    Min/Max: 0.8000 / 0.8000
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 0.800000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📈 Up
+    Stability: 🟢 Stable
+    Values: 0.8000 → 0.8000
+    Min/Max: 0.8000 / 0.8000
+    Data Points: 99
+
+
+Metric: kl_free
+..............................
+  Isolated:
+    Mean: 1.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 1.0000 → 1.0000
+    Min/Max: 1.0000 / 1.0000
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 1.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 1.0000 → 1.0000
+    Min/Max: 1.0000 / 1.0000
+    Data Points: 99
+
+
+Metric: kl_scale
+..............................
+  Isolated:
+    Mean: 1.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 1.0000 → 1.0000
+    Min/Max: 1.0000 / 1.0000
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 1.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 1.0000 → 1.0000
+    Min/Max: 1.0000 / 1.0000
+    Data Points: 99
+
+
+Metric: max_action_loss
+..............................
+  Isolated:
+    Mean: 0.346388
+    Standard Deviation: 0.185654
+    Coefficient of Variation: 53.60%
+    Range: 0.810542
+    Fluctuation Score: 0.230051
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 0.9816 → 0.1711
+    Min/Max: 0.1711 / 0.9816
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 0.430382
+    Standard Deviation: 0.234805
+    Coefficient of Variation: 54.56%
+    Range: 0.802832
+    Fluctuation Score: 0.152789
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 0.9845 → 0.1817
+    Min/Max: 0.1817 / 0.9845
+    Data Points: 99
+
+
+Metric: min_free_loss
+..............................
+  Isolated:
+    Mean: 1.733736
+    Standard Deviation: 17.125446
+    Coefficient of Variation: 987.78%
+    Range: 171.266101
+    Fluctuation Score: 83.900268
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 171.2670 → 0.0010
+    Min/Max: 0.0009 / 171.2670
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 1.685381
+    Standard Deviation: 16.645144
+    Coefficient of Variation: 987.62%
+    Range: 166.463505
+    Fluctuation Score: 81.546701
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 166.4638 → 0.0003
+    Min/Max: 0.0003 / 166.4638
+    Data Points: 99
+
+
+Metric: model_grad_norm
+..............................
+  Isolated:
+    Mean: 51.530581
+    Standard Deviation: 5.102419
+    Coefficient of Variation: 9.90%
+    Range: 23.429168
+    Fluctuation Score: 12.169272
+    Trend: 📉 Down
+    Stability: 🟡 Medium
+    Values: 67.9830 → 58.5303
+    Min/Max: 44.5538 / 67.9830
+    Data Points: 98
+
+  Isolated+TED:
+    Mean: 45.995728
+    Standard Deviation: 5.151210
+    Coefficient of Variation: 11.20%
+    Range: 21.828824
+    Fluctuation Score: 10.466830
+    Trend: 📉 Down
+    Stability: 🟡 Medium
+    Values: 56.9135 → 55.4843
+    Min/Max: 39.4376 / 61.2665
+    Data Points: 98
+
+
+Metric: model_loss
+..............................
+  Isolated:
+    Mean: 11340.941044
+    Standard Deviation: 36.759363
+    Coefficient of Variation: 0.32%
+    Range: 368.300921
+    Fluctuation Score: 173.175516
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 11698.2670 → 11329.9661
+    Min/Max: 11329.9661 / 11698.2670
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 11343.204080
+    Standard Deviation: 35.869485
+    Coefficient of Variation: 0.32%
+    Range: 359.549414
+    Fluctuation Score: 167.056369
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 11690.0352 → 11330.4857
+    Min/Max: 11330.4857 / 11690.0352
+    Data Points: 99
+
+
+Metric: post_ent
+..............................
+  Isolated:
+    Mean: 18.193746
+    Standard Deviation: 6.273498
+    Coefficient of Variation: 34.48%
+    Range: 57.820443
+    Fluctuation Score: 27.263027
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 74.0358 → 16.8778
+    Min/Max: 16.2153 / 74.0358
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 14.354107
+    Standard Deviation: 6.255941
+    Coefficient of Variation: 43.58%
+    Range: 60.153240
+    Fluctuation Score: 29.107075
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 72.4025 → 14.5199
+    Min/Max: 12.2492 / 72.4025
+    Data Points: 99
+
+
+Metric: post_ent_free
+..............................
+  Isolated:
+    Mean: 74.889073
+    Standard Deviation: 3.370683
+    Coefficient of Variation: 4.50%
+    Range: 14.756426
+    Fluctuation Score: 2.873265
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 78.3809 → 76.9550
+    Min/Max: 63.6245 / 78.3809
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 82.639464
+    Standard Deviation: 8.172985
+    Coefficient of Variation: 9.89%
+    Range: 33.830411
+    Fluctuation Score: 4.811875
+    Trend: 📈 Up
+    Stability: 🟡 Medium
+    Values: 77.0757 → 86.4219
+    Min/Max: 55.1451 / 88.9755
+    Data Points: 99
+
+
+Metric: prior_ent
+..............................
+  Isolated:
+    Mean: 35.594586
+    Standard Deviation: 4.993346
+    Coefficient of Variation: 14.03%
+    Range: 44.194485
+    Fluctuation Score: 17.918661
+    Trend: 📉 Down
+    Stability: 🟡 Medium
+    Values: 75.5752 → 31.4513
+    Min/Max: 31.3807 / 75.5752
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 35.901993
+    Standard Deviation: 4.871271
+    Coefficient of Variation: 13.57%
+    Range: 42.400111
+    Fluctuation Score: 17.033580
+    Trend: 📉 Down
+    Stability: 🟡 Medium
+    Values: 74.1208 → 31.7503
+    Min/Max: 31.7207 / 74.1208
+    Data Points: 99
+
+
+Metric: prior_ent_free
+..............................
+  Isolated:
+    Mean: 78.510203
+    Standard Deviation: 3.596841
+    Coefficient of Variation: 4.58%
+    Range: 15.895041
+    Fluctuation Score: 2.045013
+    Trend: 📈 Up
+    Stability: 🟢 Stable
+    Values: 79.0003 → 80.8400
+    Min/Max: 66.1827 / 82.0777
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 84.634853
+    Standard Deviation: 8.557000
+    Coefficient of Variation: 10.11%
+    Range: 34.249496
+    Fluctuation Score: 5.130549
+    Trend: 📈 Up
+    Stability: 🟡 Medium
+    Values: 77.8387 → 88.9226
+    Min/Max: 56.1761 / 90.4256
+    Data Points: 99
+
+
+Metric: reward_loss
+..............................
+  Isolated:
+    Mean: 1.849994
+    Standard Deviation: 0.002178
+    Coefficient of Variation: 0.12%
+    Range: 0.009976
+    Fluctuation Score: 0.003174
+    Trend: 📈 Up
+    Stability: 🟢 Stable
+    Values: 1.8463 → 1.8478
+    Min/Max: 1.8426 / 1.8526
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 1.854879
+    Standard Deviation: 0.004012
+    Coefficient of Variation: 0.22%
+    Range: 0.017317
+    Fluctuation Score: 0.006199
+    Trend: 📈 Up
+    Stability: 🟢 Stable
+    Values: 1.8473 → 1.8506
+    Min/Max: 1.8426 / 1.8599
+    Data Points: 99
+
+
+Metric: reward_mean
+..............................
+  Isolated:
+    Mean: 0.617203
+    Standard Deviation: 0.232245
+    Coefficient of Variation: 37.63%
+    Range: 0.875510
+    Fluctuation Score: 0.105356
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.0741 → 0.9496
+    Min/Max: 0.0741 / 0.9496
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 0.824860
+    Standard Deviation: 0.358898
+    Coefficient of Variation: 43.51%
+    Range: 1.258447
+    Fluctuation Score: 0.117560
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.0781 → 1.3365
+    Min/Max: 0.0781 / 1.3365
+    Data Points: 99
+
+
+Metric: reward_std
+..............................
+  Isolated:
+    Mean: 0.495809
+    Standard Deviation: 0.167872
+    Coefficient of Variation: 33.86%
+    Range: 0.645087
+    Fluctuation Score: 0.144245
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.0290 → 0.6741
+    Min/Max: 0.0290 / 0.6741
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 0.535418
+    Standard Deviation: 0.172507
+    Coefficient of Variation: 32.22%
+    Range: 0.664307
+    Fluctuation Score: 0.176800
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.0290 → 0.6883
+    Min/Max: 0.0290 / 0.6933
+    Data Points: 99
+
+
+Metric: ted_loss
+..............................
+  Isolated+TED:
+    Mean: 0.261223
+    Standard Deviation: 0.319719
+    Coefficient of Variation: 122.39%
+    Range: 2.867381
+    Fluctuation Score: 1.345346
+    Trend: 📉 Down
+    Stability: 🔴 Chaotic
+    Values: 3.0400 → 0.1731
+    Min/Max: 0.1726 / 3.0400
+    Data Points: 99
+
+
+Metric: train_episodes
+..............................
+  Isolated:
+    Mean: 252.495968
+    Standard Deviation: 143.189574
+    Coefficient of Variation: 56.71%
+    Range: 497.000000
+    Fluctuation Score: 0.995968
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 3.0000 → 500.0000
+    Min/Max: 3.0000 / 500.0000
+    Data Points: 496
+
+  Isolated+TED:
+    Mean: 252.495968
+    Standard Deviation: 143.189574
+    Coefficient of Variation: 56.71%
+    Range: 497.000000
+    Fluctuation Score: 0.995968
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 3.0000 → 500.0000
+    Min/Max: 3.0000 / 500.0000
+    Data Points: 496
+
+
+Metric: train_length
+..............................
+  Isolated:
+    Mean: 500.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 500.0000 → 500.0000
+    Min/Max: 500.0000 / 500.0000
+    Data Points: 496
+
+  Isolated+TED:
+    Mean: 500.000000
+    Standard Deviation: 0.000000
+    Coefficient of Variation: 0.00%
+    Range: 0.000000
+    Fluctuation Score: 0.000000
+    Trend: 📉 Down
+    Stability: 🟢 Stable
+    Values: 500.0000 → 500.0000
+    Min/Max: 500.0000 / 500.0000
+    Data Points: 496
+
+
+Metric: train_return
+..............................
+  Isolated:
+    Mean: 395.440332
+    Standard Deviation: 163.377873
+    Coefficient of Variation: 41.32%
+    Range: 599.261185
+    Fluctuation Score: 61.832158
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 40.7920 → 631.2237
+    Min/Max: 38.4346 / 637.6958
+    Data Points: 496
+
+  Isolated+TED:
+    Mean: 535.864762
+    Standard Deviation: 237.391567
+    Coefficient of Variation: 44.30%
+    Range: 859.545047
+    Fluctuation Score: 84.132468
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 41.9136 → 866.0212
+    Min/Max: 41.0583 / 900.6033
+    Data Points: 496
+
+
+Metric: value_grad_norm
+..............................
+  Isolated:
+    Mean: 30.755919
+    Standard Deviation: 13.458769
+    Coefficient of Variation: 43.76%
+    Range: 51.055802
+    Fluctuation Score: 8.768775
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.4910 → 43.5801
+    Min/Max: 0.4910 / 51.5468
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 35.614451
+    Standard Deviation: 15.292812
+    Coefficient of Variation: 42.94%
+    Range: 61.393620
+    Fluctuation Score: 9.965497
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.3744 → 51.5688
+    Min/Max: 0.3744 / 61.7680
+    Data Points: 99
+
+
+Metric: value_loss
+..............................
+  Isolated:
+    Mean: 10.206614
+    Standard Deviation: 5.357210
+    Coefficient of Variation: 52.49%
+    Range: 16.687691
+    Fluctuation Score: 2.050157
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.9222 → 15.4545
+    Min/Max: 0.9199 / 17.6076
+    Data Points: 99
+
+  Isolated+TED:
+    Mean: 9.193266
+    Standard Deviation: 4.474750
+    Coefficient of Variation: 48.67%
+    Range: 14.148283
+    Fluctuation Score: 1.353436
+    Trend: 📈 Up
+    Stability: 🔴 Chaotic
+    Values: 0.9199 → 14.7713
+    Min/Max: 0.9199 / 15.0682
+    Data Points: 99
+
+
+GROUP STABILITY RANKING:
+------------------------------
+Isolated: 56.34% average CV
+Isolated+TED: 59.26% average CV
